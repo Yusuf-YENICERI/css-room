@@ -2,6 +2,9 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
 }
 
 :root {
@@ -19,8 +22,8 @@ body {
 
 .room {
     position: relative;
-    transform-style: preserve-3d;
     transform: perspective(1000px) rotateY(45deg) rotateZ(var(--rotation)) rotateX(var(--rotation)) translateX(300px) translateZ(-300px);
+    -moz-transform: perspective(1000px) rotateY(45deg) rotateZ(var(--rotation)) rotateX(var(--rotation)) translateX(300px) translateZ(-300px);
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,7 +31,8 @@ body {
 
 .square {
     transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) translateX(var(--translateX)) translateY(var(--translateY)) translateZ(var(--translateZ));
-    transform-style: preserve-3d;
+    -moz-transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) translateX(var(--translateX)) translateY(var(--translateY)) translateZ(var(--translateZ));
+    -webkit-transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) translateX(var(--translateX)) translateY(var(--translateY)) translateZ(var(--translateZ));
 }
 
 .side {
@@ -47,25 +51,34 @@ body {
 
 .square .back {
     transform: translate(-50%, -50%) translateZ(var(--thickness));
+    -moz-transform: translate(-50%, -50%) translateZ(var(--thickness));
 }
 
 .square .left {
     width: var(--thickness);
     transform: translate(calc(-50% + var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
+    -moz-transform: translate(calc(-50% + var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
+    -webkit-transform: translate(calc(-50% + var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
 }
 .square .right {
     width: var(--thickness);
     transform: translate(calc(-50% - var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
+    -moz-transform: translate(calc(-50% - var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
+    -webkit-transform: translate(calc(-50% - var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
 }
 .square .top {
     width: var(--thickness);
     height: var(--width);
     transform: translate(-50%, calc(-50% - var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(270deg) rotateZ(90deg); /* 90deg + 180deg for better bg */
+    -moz-transform: translate(-50%, calc(-50% - var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(270deg) rotateZ(90deg); /* 90deg + 180deg for better bg */
+    -webkit-transform: translate(-50%, calc(-50% - var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(270deg) rotateZ(90deg); /* 90deg + 180deg for better bg */
 }
 .square .bottom {
     width: var(--thickness);
     height: var(--width);
     transform: translate(-50%, calc(-50% + var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(90deg) rotateZ(90deg) rotateY(180deg);
+    -moz-transform: translate(-50%, calc(-50% + var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(90deg) rotateZ(90deg) rotateY(180deg);
+    -webkit-transform: translate(-50%, calc(-50% + var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(90deg) rotateZ(90deg) rotateY(180deg);
 }
 
 .wallText {
@@ -74,10 +87,14 @@ body {
     font-size: 3rem;
     font-weight: bolder;
     transform: translate(calc(-50% - 125px), -200%) translateZ(-125px);
+    -moz-transform: translate(calc(-50% - 125px), -200%) translateZ(-125px);
+    -webkit-transform: translate(calc(-50% - 125px), -200%) translateZ(-125px);
 }
 .wallLogo{
     position: absolute;
     transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(90deg);
+    -moz-transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(90deg);
+    -webkit-transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(90deg);
     width: 200px;
     height: 200px;
     background-size: contain;
@@ -87,5 +104,6 @@ body {
     position: relative;
     transform-origin: left;
     transform: translateY(75px) rotateZ(-75deg);
-    transform-style: preserve-3d;
+    -moz-transform: translateY(75px) rotateZ(-75deg);
+    -webkit-transform: translateY(75px) rotateZ(-75deg);
 }
