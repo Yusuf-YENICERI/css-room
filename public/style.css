@@ -92,9 +92,9 @@ body {
 }
 .wallLogo{
     position: absolute;
-    transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(90deg);
-    -moz-transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(90deg);
-    -webkit-transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(90deg);
+    transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(-90deg);
+    -moz-transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(-90deg);
+    -webkit-transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(-90deg);
     width: 200px;
     height: 200px;
     background-size: contain;
