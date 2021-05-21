@@ -1,0 +1,91 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: hsl(250, 50%, 10%);
+    --rotation: -15deg;
+}
+
+body {
+    background: var(--background);
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.room {
+    position: relative;
+    transform-style: preserve-3d;
+    transform: perspective(1000px) rotateY(45deg) rotateZ(var(--rotation)) rotateX(var(--rotation)) translateX(300px) translateZ(-300px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.square {
+    transform: rotateX(var(--rotateX)) rotateY(var(--rotateY)) rotateZ(var(--rotateZ)) translateX(var(--translateX)) translateY(var(--translateY)) translateZ(var(--translateZ));
+    transform-style: preserve-3d;
+}
+
+.side {
+    display: inline-block;
+    width: var(--width);
+    height: var(--height);
+    background: var(--bg);
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.square .front {
+    transform: translate(-50%, -50%);
+}
+
+.square .back {
+    transform: translate(-50%, -50%) translateZ(var(--thickness));
+}
+
+.square .left {
+    width: var(--thickness);
+    transform: translate(calc(-50% + var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
+}
+.square .right {
+    width: var(--thickness);
+    transform: translate(calc(-50% - var(--width)), -50%) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateY(90deg);
+}
+.square .top {
+    width: var(--thickness);
+    height: var(--width);
+    transform: translate(-50%, calc(-50% - var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(270deg) rotateZ(90deg); /* 90deg + 180deg for better bg */
+}
+.square .bottom {
+    width: var(--thickness);
+    height: var(--width);
+    transform: translate(-50%, calc(-50% + var(--translate))) translateZ(calc(calc(var(--thickness) * -1) + calc(var(--thickness) / 2))) /* -thickness + thickness / 2 */ rotateX(90deg) rotateZ(90deg) rotateY(180deg);
+}
+
+.wallText {
+    position: absolute;
+    width: max-content;
+    font-size: 3rem;
+    font-weight: bolder;
+    transform: translate(calc(-50% - 125px), -200%) translateZ(-125px);
+}
+.wallLogo{
+    position: absolute;
+    transform: translateX(24px) translateY(-200px) translateZ(125px) rotateY(90deg);
+    width: 200px;
+    height: 200px;
+    background-size: contain;
+    background-image: url("https://woxe.dev/wnew.webp");
+}
+.screen{
+    position: relative;
+    transform-origin: left;
+    transform: translateY(75px) rotateZ(-75deg);
+    transform-style: preserve-3d;
+}
